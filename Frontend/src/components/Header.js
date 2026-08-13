@@ -83,11 +83,13 @@ const Header = () => {
         <div className="container-xxl">
           <div className="row align-items-center">
             <div className="col-2">
-              <h2>
-                <Link className="text-white" to="/">
-                  Voxel Ventures
-                </Link>
-              </h2>
+              <Link to="/">
+                <img 
+                  src="/images/voxel-logo.png" 
+                  alt="Voxel Ventures Logo" 
+                  style={{ height: "50px", width: "auto" }} 
+                />
+              </Link>
             </div>
             <div className="col-5">
               <div className="input-group">
