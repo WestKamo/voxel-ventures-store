@@ -1,6 +1,8 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
+  "name": "voxel-ventures-frontend",
+  "version": "1.0.0",
+  "description": "The React frontend for the Voxel Ventures e-commerce platform",
+  "author": "Phindile Sandi",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",

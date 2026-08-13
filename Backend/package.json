@@ -1,14 +1,14 @@
 {
-  "name": "backend",
+  "name": "voxel-ventures-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "The Node.js and Express backend API for the Voxel Ventures e-commerce platform",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "server": "nodemon index.js"
   },
-  "author": "",
+  "author": "Phindile Sandi",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
