@@ -1,4 +1,4 @@
-export const base_url = "http://localhost:5000/api/";
+export const base_url = "https://voxel-ventures-store.onrender.com/api";
 const getTokenFromLocalStorage = localStorage.getItem("customer")
   ? JSON.parse(localStorage.getItem("customer"))
   : null;
