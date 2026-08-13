@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import BreadCrumb from "../components/BreadCrumb";
 import Meta from "../components/Meta";
-import ReactStars from "react-rating-stars-component";
 import ProductCard from "../components/ProductCard";
-import Color from "../components/Color";
 import Container from "../components/Container";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "../features/products/productSlilce";
@@ -14,10 +12,9 @@ const OurStore = () => {
   const productState = useSelector((state) => state?.product?.product);
   const [brands, setBrands] = useState([]);
   const [categories, setCategories] = useState([]);
-
   const [tags, setTags] = useState([]);
 
-  //filter state
+  // Filter state
   const [tag, setTag] = useState(null);
   const [category, setCategory] = useState(null);
   const [brand, setBrand] = useState(null);
@@ -42,9 +39,11 @@ const OurStore = () => {
   }, [productState]);
 
   const dispatch = useDispatch();
+  
   useEffect(() => {
     getProducts();
   }, [sort, tag, brand, category, minPrice, maxPrice]);
+  
   const getProducts = () => {
     dispatch(
       getAllProducts({ sort, tag, brand, category, minPrice, maxPrice })
@@ -53,27 +52,27 @@ const OurStore = () => {
 
   return (
     <>
-      <Meta title={"Our Store"} />
-      <BreadCrumb title="Our Store" />
+      <Meta title={"Services & Store"} />
+      <BreadCrumb title="Services & Store" />
       <Container class1="store-wrapper home-wrapper-2 py-5">
         <div className="row">
           <div className="col-3">
             <div className="filter-card mb-3">
-              <h3 className="filter-title">Shop By Categories</h3>
+              <h3 className="filter-title">Browse Offerings</h3>
               <div>
                 <ul className="ps-0">
-                  <a
+                  <Link
                     className="ps-0"
-                    href="/product"
+                    to="/product"
                     style={{ color: "var(--color-777777)" }}
                   >
-                    All
-                  </a>
+                    All Services & Items
+                  </Link>
 
                   {categories &&
                     [...new Set(categories)].map((item, index) => {
                       return (
-                        <li key={index} onClick={() => setCategory(item)}>
+                        <li key={index} onClick={() => setCategory(item)} style={{ cursor: "pointer" }}>
                           {item}
                         </li>
                       );
@@ -81,10 +80,11 @@ const OurStore = () => {
                 </ul>
               </div>
             </div>
+            
             <div className="filter-card mb-3">
               <h3 className="filter-title">Filter By</h3>
               <div>
-                <h5 className="sub-title">Price</h5>
+                <h5 className="sub-title">Budget (ZAR)</h5>
                 <div className="d-flex align-items-center gap-10">
                   <div className="form-floating">
                     <input
@@ -94,7 +94,7 @@ const OurStore = () => {
                       placeholder="From"
                       onChange={(e) => setminPrice(e.target.value)}
                     />
-                    <label htmlFor="floatingInput">From</label>
+                    <label htmlFor="floatingInput">Min (R)</label>
                   </div>
                   <div className="form-floating">
                     <input
@@ -104,16 +104,13 @@ const OurStore = () => {
                       placeholder="To"
                       onChange={(e) => setmaxPrice(e.target.value)}
                     />
-                    <label htmlFor="floatingInput1">To</label>
+                    <label htmlFor="floatingInput1">Max (R)</label>
                   </div>
                 </div>
-                {/* <h5 className="sub-title">Colors</h5>
-                <div>
-                  <Color />
-                </div> */}
               </div>
+              
               <div className="mt-4 mb-3">
-                <h3 className="sub-title">Product Tags</h3>
+                <h3 className="sub-title">Project Tags</h3>
                 <div>
                   <div className="product-tags d-flex flex-wrap align-items-center gap-10">
                     {tags &&
@@ -123,6 +120,7 @@ const OurStore = () => {
                             key={index}
                             onClick={() => setTag(item)}
                             className="text-capitalize badge bg-light text-secondary rounded-3 py-2 px-3"
+                            style={{ cursor: "pointer" }}
                           >
                             {item}
                           </span>
@@ -131,8 +129,9 @@ const OurStore = () => {
                   </div>
                 </div>
               </div>
+              
               <div className="mt-4 mb-3">
-                <h3 className="sub-title">Product Brands</h3>
+                <h3 className="sub-title">Technologies & Partners</h3>
                 <div>
                   <div className="product-tags d-flex flex-wrap align-items-center gap-10">
                     {brands &&
@@ -142,6 +141,7 @@ const OurStore = () => {
                             key={index}
                             onClick={() => setBrand(item)}
                             className="text-capitalize badge bg-light text-secondary rounded-3 py-2 px-3"
+                            style={{ cursor: "pointer" }}
                           >
                             {item}
                           </span>
@@ -152,6 +152,7 @@ const OurStore = () => {
               </div>
             </div>
           </div>
+          
           <div className="col-9">
             <div className="filter-sort-grid mb-4">
               <div className="d-flex justify-content-between align-items-center">
@@ -161,7 +162,7 @@ const OurStore = () => {
                   </p>
                   <select
                     name=""
-                    defaultValue={"manula"}
+                    defaultValue={"manual"}
                     className="form-control form-select"
                     id=""
                     onChange={(e) => setSort(e.target.value)}
@@ -176,7 +177,7 @@ const OurStore = () => {
                 </div>
                 <div className="d-flex align-items-center gap-10">
                   <p className="totalproducts mb-0">
-                    {productState?.length} Products
+                    {productState?.length} Offerings
                   </p>
                   <div className="d-flex gap-10 align-items-center grid">
                     <img
@@ -186,6 +187,7 @@ const OurStore = () => {
                       src="images/gr4.svg"
                       className="d-block img-fluid"
                       alt="grid"
+                      style={{ cursor: "pointer" }}
                     />
                     <img
                       onClick={() => {
@@ -194,14 +196,16 @@ const OurStore = () => {
                       src="images/gr3.svg"
                       className="d-block img-fluid"
                       alt="grid"
+                      style={{ cursor: "pointer" }}
                     />
                     <img
-                      src="images/gr2.svg"
-                      className="d-block img-fluid"
-                      alt="grid"
                       onClick={() => {
                         setGrid(6);
                       }}
+                      src="images/gr2.svg"
+                      className="d-block img-fluid"
+                      alt="grid"
+                      style={{ cursor: "pointer" }}
                     />
 
                     <img
@@ -211,6 +215,7 @@ const OurStore = () => {
                       src="images/gr.svg"
                       className="d-block img-fluid"
                       alt="grid"
+                      style={{ cursor: "pointer" }}
                     />
                   </div>
                 </div>
