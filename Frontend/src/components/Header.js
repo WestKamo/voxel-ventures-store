@@ -66,13 +66,13 @@ const Header = () => {
         <div className="container-xxl">
           <div className="row">
             <div className="col-6">
-              <p className="text-white mb-0">Free Shipping Over Rs.100</p>
+              <p className="text-white mb-0">Custom Tech & Lifestyle Solutions</p>
             </div>
             <div className="col-6">
               <p className="text-end text-white mb-0">
                 Hotline:
-                <a className="text-white" href="tel:+91 8264954234">
-                  +91 8264954234
+                <a className="text-white ms-2" href="tel:+27680740380">
+                  0680740380
                 </a>
               </p>
             </div>
@@ -84,8 +84,8 @@ const Header = () => {
           <div className="row align-items-center">
             <div className="col-2">
               <h2>
-                <Link className="text-white" to="/ ">
-                  Cart Corner
+                <Link className="text-white" to="/">
+                  Voxel Ventures
                 </Link>
               </h2>
             </div>
@@ -101,7 +101,7 @@ const Header = () => {
                   options={productOpt}
                   paginate={paginate}
                   labelKey={"name"}
-                  placeholder="Search for Products here"
+                  placeholder="Search for Services & Products here"
                 />
                 <span className="input-group-text p-3" id="basic-addon2">
                   <BsSearch className="fs-6" />
@@ -160,7 +160,7 @@ const Header = () => {
                         {cartState?.length ? cartState?.length : 0}
                       </span>
                       <p className="mb-0">
-                        Rs. {!cartState?.length ? 0 : total ? total : 0}
+                        R {!cartState?.length ? 0 : total ? total : 0}
                       </p>
                     </div>
                   </Link>
@@ -186,7 +186,7 @@ const Header = () => {
                     >
                       <img src={menu} alt="" />
                       <span className="me-5 d-inline-block">
-                        Shop Categories
+                        Browse Offerings
                       </span>
                     </button>
                     <ul
@@ -209,13 +209,13 @@ const Header = () => {
                 <div className="menu-links">
                   <div className="d-flex align-items-center gap-15">
                     <NavLink to="/">Home</NavLink>
-                    <NavLink to="/product">Our Store</NavLink>
+                    <NavLink to="/product">Services & Store</NavLink>
                     <NavLink to="/my-orders">My Orders</NavLink>
-                    <NavLink to="/blogs">Blogs</NavLink>
+                    <NavLink to="/blogs">Insights & Projects</NavLink>
                     <NavLink to="/contact">Contact</NavLink>
                     {authState?.user !== null ? (
                       <button
-                        className="border border-0 bg-trasparent text-white text-uppercase"
+                        className="border border-0 bg-transparent text-white text-uppercase"
                         type="button"
                         style={{ backgroundColor: "#232f3e" }}
                         onClick={handleLogout}
