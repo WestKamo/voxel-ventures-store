@@ -1,6 +1,8 @@
 {
-  "name": "admin",
-  "version": "0.1.0",
+  "name": "voxel-ventures-admin",
+  "version": "1.0.0",
+  "description": "The React admin dashboard for the Voxel Ventures e-commerce platform",
+  "author": "Phindile Sandi",
   "private": true,
   "dependencies": {
     "@ant-design/plots": "^1.2.5",
