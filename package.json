@@ -1,0 +1,28 @@
+{
+  "name": "voxel-ventures",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -w client",
+    "start": "npm start -w server",
+    "seed": "npm run seed -w server",
+    "test": "npm test -w server && npm test -w client",
+    "lint": "eslint client/src server/src server/tests e2e",
+    "format": "prettier --write client/src server/src server/tests e2e docs README.md",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0",
+    "eslint": "^9.39.0",
+    "@eslint/js": "^9.39.0",
+    "globals": "^16.5.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "prettier": "^3.6.2",
+    "@playwright/test": "^1.56.0"
+  },
+  "type": "module"
+}
